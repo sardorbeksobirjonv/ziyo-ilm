@@ -407,7 +407,7 @@
                                         <th scope="col" class="px-6 py-4 font-semibold">Telefon</th>
                                         <th scope="col" class="px-6 py-4 font-semibold">Fan / Kurs nomi</th>
                                         <th scope="col" class="px-6 py-4 font-semibold">O'quvchilar</th>
-                                        <th scope="col" class="px-6 py-4 font-semibold">Ustoz Ulushi</th>
+                                        <th scope="col" class="px-6 py-4 font-semibold">Ustoz Ulushi (%)</th>
                                         <th scope="col" class="px-6 py-4 font-semibold">Kurs Narxi</th>
                                         <th scope="col" class="px-6 py-4 font-semibold">Jami Oyligi</th>
                                         <th scope="col" class="px-6 py-4 font-semibold text-center">Harakatlar</th>
@@ -462,11 +462,11 @@
 
                         <div class="glass p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex items-center gap-4">
                             <div class="w-12 h-12 bg-indigo-500/10 dark:bg-indigo-400/10 text-indigo-600 dark:text-indigo-400 rounded-xl flex items-center justify-center flex-shrink-0">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                             </div>
                             <div>
-                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Oylik ulushi / Kurs narxi</span>
-                                <p class="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5"><span id="detail-teacherShare">-</span> / <span id="detail-coursePrice">-</span> so'm</p>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Ustoz ulushi foizi / Kurs narxi</span>
+                                <p class="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5"><span id="detail-teacherSharePercentage">-</span>% / <span id="detail-coursePrice">-</span> so'm</p>
                             </div>
                         </div>
 
@@ -475,8 +475,49 @@
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                             </div>
                             <div>
-                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Jami hisoblangan oylik</span>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Umumiy daromadi</span>
                                 <p class="text-sm font-bold text-amber-600 dark:text-amber-400 mt-0.5" id="detail-teacherSalaryTotal">- so'm</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional statistics row -->
+                        <div class="glass p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-sky-500/10 dark:bg-sky-400/10 text-sky-600 dark:text-sky-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.856-1.487M15 10h.01M11 10h.01M7 10h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">O'quvchilar soni</span>
+                                <p class="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5" id="detail-totalStudents">0</p>
+                            </div>
+                        </div>
+
+                        <div class="glass p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-emerald-500/10 dark:bg-emerald-400/10 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">To'lov qilganlar</span>
+                                <p class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-0.5" id="detail-paidStudents">0</p>
+                            </div>
+                        </div>
+
+                        <div class="glass p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-rose-500/10 dark:bg-rose-400/10 text-rose-600 dark:text-rose-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l-2-2m0 0l-2-2m2 2l2-2m-2 2l-2 2m2-2l2 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">To'lanmaganlar</span>
+                                <p class="text-sm font-bold text-rose-600 dark:text-rose-400 mt-0.5" id="detail-unpaidStudents">0</p>
+                            </div>
+                        </div>
+
+                        <div class="glass p-5 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex items-center gap-4">
+                            <div class="w-12 h-12 bg-amber-500/10 dark:bg-amber-400/10 text-amber-600 dark:text-amber-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <div>
+                                <span class="text-[10px] uppercase font-bold tracking-wider text-slate-400">Qisman to'laganlar</span>
+                                <p class="text-sm font-bold text-amber-600 dark:text-amber-400 mt-0.5" id="detail-partialStudents">0</p>
                             </div>
                         </div>
                     </div>
@@ -628,9 +669,10 @@
                             class="w-full px-4 py-2.5 bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-sky-500 dark:focus:ring-sky-400 focus:border-transparent outline-none text-slate-850 dark:text-slate-100 transition duration-150">
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Ustozga to'lanadigan ulush (so'm)</label>
-                        <input id="teacherShareAmount" type="number" min="0" required
+                        <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">Ustoz ulushi (%)</label>
+                        <input id="teacherSharePercentage" type="number" min="0" max="100" step="0.5" required
                             class="w-full px-4 py-2.5 bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-sky-500 dark:focus:ring-sky-400 focus:border-transparent outline-none text-slate-850 dark:text-slate-100 transition duration-150">
+                        <p class="text-[10px] text-slate-450 dark:text-slate-500 mt-1.5">* Masalan: 40% kiritilsa, ustoz har bir to'lovning 40% ini oladi, qolgan 60% markazga tushadi.</p>
                     </div>
                 </div>
 
@@ -684,7 +726,7 @@
                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase mb-2">To'lov Summasi (so'm)</label>
                     <input id="studentPaymentAmount" type="number" min="0" required
                         class="w-full px-4 py-2.5 bg-slate-100/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-sky-500 dark:focus:ring-sky-400 focus:border-transparent outline-none text-slate-850 dark:text-slate-100 transition duration-150">
-                    <p class="text-[10px] text-slate-450 dark:text-slate-500 mt-1.5">* Agar kurs narxi 500,000 so'm bo'lsa va ustoz ulushi 200,000 so'm qilib belgilangan bo'lsa, to'langan summaning 40% ustoz hisobiga, 60% esa admin balansiga tushadi.</p>
+                    <p class="text-[10px] text-slate-450 dark:text-slate-500 mt-1.5">* Agar ustoz ulushi 40% qilib belgilangan bo'lsa, to'langan summaning 40% ustoz hisobiga, 60% esa markazga tushadi. Masalan: 500,000 to'lov = 200,000 ustozga (40%) + 300,000 markazga (60%).</p>
                 </div>
 
                 <div class="flex gap-3 mt-6">
@@ -769,7 +811,7 @@
                                 lastName: "Rahmonov",
                                 phone: "+998 (90) 111-22-33",
                                 subject: "Web Dasturlash",
-                                teacherShare: 200000,
+                                teacherSharePercentage: 50,
                                 coursePrice: 500000,
                                 createdAt: "2026-05-10"
                             },
@@ -779,7 +821,7 @@
                                 lastName: "Qodirova",
                                 phone: "+998 (91) 222-33-44",
                                 subject: "Ingliz tili IELTS",
-                                teacherShare: 200000,
+                                teacherSharePercentage: 50,
                                 coursePrice: 500000,
                                 createdAt: "2026-05-15"
                             },
@@ -789,7 +831,7 @@
                                 lastName: "Aliyev",
                                 phone: "+998 (93) 333-44-55",
                                 subject: "Matematika (Abituriyent)",
-                                teacherShare: 180000,
+                                teacherSharePercentage: 50,
                                 coursePrice: 400000,
                                 createdAt: "2026-05-20"
                             }
@@ -1143,11 +1185,9 @@
             return new Intl.NumberFormat('uz-UZ').format(amount);
         }
 
-        // Helper to compute ratios
+        // Helper to compute teacher's share ratio from percentage
         function getTeacherRatio(teacher) {
-            const share = Number(teacher.teacherShare) || 0;
-            const price = Number(teacher.coursePrice) || 0;
-            return price > 0 ? share / price : 0;
+            return (Number(teacher.teacherSharePercentage) || 0) / 100;
         }
 
         // ==================== FINANCIAL CALCULATIONS ====================
@@ -1408,7 +1448,7 @@
                     <td class="px-6 py-4 text-slate-500 dark:text-slate-400 font-medium">${t.phone}</td>
                     <td class="px-6 py-4"><span class="bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 px-3 py-1 rounded-full text-xs font-semibold">${t.subject}</span></td>
                     <td class="px-6 py-4 text-center font-bold text-slate-700 dark:text-slate-350">${sCount}</td>
-                    <td class="px-6 py-4 text-slate-600 dark:text-slate-400 font-semibold">${formatMoney(t.teacherShare)}</td>
+                    <td class="px-6 py-4 text-slate-600 dark:text-slate-400 font-semibold">${t.teacherSharePercentage}%</td>
                     <td class="px-6 py-4 text-slate-600 dark:text-slate-400 font-semibold">${formatMoney(t.coursePrice)}</td>
                     <td class="px-6 py-4 text-indigo-600 dark:text-indigo-400 font-extrabold">${formatMoney(salary)}</td>
                     <td class="px-6 py-4 text-center">
@@ -1441,7 +1481,7 @@
             const phone = document.getElementById('teacherPhone');
             const subject = document.getElementById('teacherSubject');
             const cPrice = document.getElementById('teacherCoursePrice');
-            const sAmount = document.getElementById('teacherShareAmount');
+            const sPercentage = document.getElementById('teacherSharePercentage');
 
             if (id) {
                 title.textContent = "O'qituvchini Tahrirlash";
@@ -1455,7 +1495,7 @@
                     phone.value = teacher.phone;
                     subject.value = teacher.subject;
                     cPrice.value = teacher.coursePrice;
-                    sAmount.value = teacher.teacherShare;
+                    sPercentage.value = teacher.teacherSharePercentage;
                 }
             } else {
                 title.textContent = "Yangi O'qituvchi Qo'shish";
@@ -1466,7 +1506,7 @@
                 phone.value = "";
                 subject.value = "";
                 cPrice.value = "";
-                sAmount.value = "";
+                sPercentage.value = "";
             }
 
             modal.classList.remove('pointer-events-none', 'opacity-0');
@@ -1489,10 +1529,10 @@
             const phone = document.getElementById('teacherPhone').value.trim();
             const subject = document.getElementById('teacherSubject').value.trim();
             const coursePrice = Number(document.getElementById('teacherCoursePrice').value);
-            const teacherShare = Number(document.getElementById('teacherShareAmount').value);
+            const teacherSharePercentage = Number(document.getElementById('teacherSharePercentage').value);
 
-            if (teacherShare > coursePrice) {
-                alert("⚠️ Xatolik: O'qituvchining ulushi kurs umumiy narxidan ko'p bo'lishi mumkin emas!");
+            if (teacherSharePercentage < 0 || teacherSharePercentage > 100) {
+                alert("⚠️ Xatolik: Ustoz ulushi 0% dan 100% gacha bo'lishi kerak!");
                 return;
             }
 
@@ -1506,9 +1546,9 @@
                     data.teachers[tIndex].phone = phone;
                     data.teachers[tIndex].subject = subject;
                     data.teachers[tIndex].coursePrice = coursePrice;
-                    data.teachers[tIndex].teacherShare = teacherShare;
+                    data.teachers[tIndex].teacherSharePercentage = teacherSharePercentage;
 
-                    TelegramLogger.sendLog(`🟡 <b>O'qituvchi ma'lumotlari tahrirlandi</b>\n\n👤 <b>Eski:</b> ${oldTeacher.firstName} ${oldTeacher.lastName} (${oldTeacher.subject})\n👤 <b>Yangi:</b> ${firstName} ${lastName} (${subject})\n📞 <b>Telefon:</b> ${phone}\n💰 <b>Kurs narxi:</b> ${formatMoney(coursePrice)} so'm\n💸 <b>Ustoz ulushi:</b> ${formatMoney(teacherShare)} so'm\n🕒 <b>Sana:</b> ${TelegramLogger.getFormattedDateTime()}`);
+                    TelegramLogger.sendLog(`🟡 <b>O'qituvchi ma'lumotlari tahrirlandi</b>\n\n👤 <b>Eski:</b> ${oldTeacher.firstName} ${oldTeacher.lastName} (${oldTeacher.subject})\n👤 <b>Yangi:</b> ${firstName} ${lastName} (${subject})\n📞 <b>Telefon:</b> ${phone}\n💰 <b>Kurs narxi:</b> ${formatMoney(coursePrice)} so'm\n📊 <b>Ustoz ulushi:</b> ${teacherSharePercentage}%\n🕒 <b>Sana:</b> ${TelegramLogger.getFormattedDateTime()}`);
                 }
             } else {
                 // Add
@@ -1519,12 +1559,12 @@
                     phone,
                     subject,
                     coursePrice,
-                    teacherShare,
+                    teacherSharePercentage,
                     createdAt: new Date().toISOString().split('T')[0]
                 };
                 data.teachers.push(newTeacher);
 
-                TelegramLogger.sendLog(`🟢 <b>Yangi o'qituvchi qo'shildi</b>\n\n👤 <b>Ism:</b> ${firstName} ${lastName}\n📞 <b>Telefon:</b> ${phone}\n📚 <b>Kurs:</b> ${subject}\n💰 <b>Kurs narxi:</b> ${formatMoney(coursePrice)} so'm\n💸 <b>Ustoz ulushi:</b> ${formatMoney(teacherShare)} so'm\n🕒 <b>Sana:</b> ${TelegramLogger.getFormattedDateTime()}`);
+                TelegramLogger.sendLog(`🟢 <b>Yangi o'qituvchi qo'shildi</b>\n\n👤 <b>Ism:</b> ${firstName} ${lastName}\n📞 <b>Telefon:</b> ${phone}\n📚 <b>Kurs:</b> ${subject}\n💰 <b>Kurs narxi:</b> ${formatMoney(coursePrice)} so'm\n📊 <b>Ustoz ulushi:</b> ${teacherSharePercentage}%\n🕒 <b>Sana:</b> ${TelegramLogger.getFormattedDateTime()}`);
             }
 
             DB.save(data);
@@ -1569,11 +1609,22 @@
             document.getElementById('detail-teacherName').textContent = `${teacher.firstName} ${teacher.lastName}`;
             document.getElementById('detail-teacherSubject').textContent = teacher.subject;
             document.getElementById('detail-teacherPhone').textContent = teacher.phone;
-            document.getElementById('detail-teacherShare').textContent = formatMoney(teacher.teacherShare);
+            document.getElementById('detail-teacherSharePercentage').textContent = teacher.teacherSharePercentage;
             document.getElementById('detail-coursePrice').textContent = formatMoney(teacher.coursePrice);
             
             const salary = financials.teacherSalaries[teacher.id] || 0;
             document.getElementById('detail-teacherSalaryTotal').textContent = `${formatMoney(salary)} so'm`;
+
+            // Calculate student statistics
+            const allStudents = data.students.filter(s => s.teacherId === teacher.id);
+            const paidStudents = allStudents.filter(s => s.paymentAmount >= teacher.coursePrice);
+            const unpaidStudents = allStudents.filter(s => s.paymentAmount === 0);
+            const partialStudents = allStudents.filter(s => s.paymentAmount > 0 && s.paymentAmount < teacher.coursePrice);
+
+            document.getElementById('detail-totalStudents').textContent = allStudents.length;
+            document.getElementById('detail-paidStudents').textContent = paidStudents.length;
+            document.getElementById('detail-unpaidStudents').textContent = unpaidStudents.length;
+            document.getElementById('detail-partialStudents').textContent = partialStudents.length;
 
             // Filter status list update
             renderStudentsTable();
